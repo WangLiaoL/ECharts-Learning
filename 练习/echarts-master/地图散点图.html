@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="map-wrap" style="width:1000px;height: 800px">
+
+</div>
+
+<script type="text/javascript" charset="utf-8" src="dist/echarts.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="map/js/province/shanxi1.js"></script>
+<script type="text/javascript">
+    var bmapChart=echarts.init(document.getElementById('map-wrap'));
+    var myData = [
+        {name: '海门', value: [121.15, 31.89, 90]},
+        {name: '鄂尔多斯', value: [109.781327, 39.608266, 120]},
+        {name: '招远', value: [120.38, 37.35, 142]},
+        {name: '舟山', value: [122.207216, 29.985295, 123]},
+    ];
+    var option={
+        geo:{
+            map:'陕西',
+            itemStyle:{
+                normal:{
+                    areaColor:'darkOrange',
+                    borderColor:'#111'
+                },
+                emphasis:{
+                    areaColor:'yellow'
+                }
+            }
+        },
+        backgroundColor:'#404a59',
+        series:[
+            {
+                name:'销量',
+
+                coordinateSystem:'geo',
+                type: 'map',
+                mapType: '陕西',
+                roam: false,
+                label:{
+                    normal:{
+                        show:true
+                    },
+                    emphasis:{
+                        show:true
+                    }
+                }
+            }
+        ]
+    };
+
+    bmapChart.setOption(option);
+</script>
+</body>
+</html>
